@@ -49,7 +49,7 @@
                 Jakart, Indonesia
               </span>
             </a>
-            <a href="wa.me/6285161324220" targer="_blank"class="contact_link2">
+            <a href="wa.me/6285161324220" target="_blank"class="contact_link2">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
                 Call : +62 851-6132-4220
@@ -398,25 +398,28 @@
       <div class="row">
         <div class="col-md-9 mx-auto">
           <div class="form_container">
-            <form>
+            <form id="" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="582ac0bc-b0f4-4acd-a968-7b0e341753a6">
               <div class="form-row">
-                <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="First Name" />
+                <div class="form-group col-md-12">
+                  <input type="text" id="name" name="name" required class="form-control" placeholder="Name" />
                 </div>
+                <!--  
                 <div class="form-group col-md-6">
                   <input type="text" class="form-control" placeholder="Last Name" />
                 </div>
+                -->
               </div>
               <div class="form-row">
                 <div class="form-group col-md-6">
-                  <input type="email" class="form-control" placeholder="Email" />
+                  <input type="email" id="email" name="email" required class="form-control" placeholder="Email" />
                 </div>
                 <div class="form-group col-md-6">
-                  <input type="text" class="form-control" placeholder="Phone Number" />
+                  <input type="number" id="phone" class="form-control" placeholder="Phone Number" />
                 </div>
               </div>
               <div class="form-group ">
-                <input type="text" class="message-box" placeholder="Message" />
+                <input type="text" name="message" id="message" class="message-box" placeholder="Message" />
               </div>
               <div class="btn-box">
                 <button type="submit">Submit</button>
@@ -427,6 +430,27 @@
       </div>
     </div>
   </section>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+      $(document).ready(function() {
+            $('#contactForm').on('submit', function(event) {
+                event.preventDefault();
+
+                $.ajax({
+                    url: 'https://api.web3forms.com/submit',
+                    method: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        alert('Your message has been sent successfully!');
+                        $('#contactForm')[0].reset(); // Reset form fields
+                    },
+                    error: function(error) {
+                        alert('There was an error sending your message. Please try again.');
+                    }
+                });
+            });
+        });
+  </script>
   <!-- end contact section -->
 
   <!-- client section -->
@@ -579,24 +603,25 @@
             <a href="" class="">
               <i class="fa fa-map-marker" aria-hidden="true"></i>
               <span>
-                Lorem ipsum dolor sit amet,
+                Jakarta, Indonesia
               </span>
             </a>
             <a href="" class="">
               <i class="fa fa-phone" aria-hidden="true"></i>
               <span>
-                Call : +01 1234567890
+                Call : +62 851-6132-4220
               </span>
             </a>
             <a href="" class="">
               <i class="fa fa-envelope" aria-hidden="true"></i>
               <span>
-                demo@gmail.com
+                lvsolution@gmail.com
               </span>
             </a>
           </div>
         </div>
         <div class="col-md-3">
+          <!-- 
           <div class="info_form ">
             <h5>
               Newsletter
@@ -622,6 +647,7 @@
               </a>
             </div>
           </div>
+        -->
         </div>
       </div>
     </div>
