@@ -270,7 +270,7 @@
 
   <!-- about section -->
 
-  <section class="about_section layout_padding">
+  <section class="about_section layout_padding" style="background-color: #cf7a08;">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 px-0">
@@ -398,7 +398,7 @@
       <div class="row">
         <div class="col-md-9 mx-auto">
           <div class="form_container">
-            <form id="" action="https://api.web3forms.com/submit" method="POST">
+            <form id="form"  method="POST">
               <input type="hidden" name="access_key" value="582ac0bc-b0f4-4acd-a968-7b0e341753a6">
               <div class="form-row">
                 <div class="form-group col-md-12">
@@ -430,26 +430,49 @@
       </div>
     </div>
   </section>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script>
-      $(document).ready(function() {
-            $('#contactForm').on('submit', function(event) {
-                event.preventDefault();
+      const form = document.getElementById('form');
+      // const result = document.getElementById('result');
 
-                $.ajax({
-                    url: 'https://api.web3forms.com/submit',
-                    method: 'POST',
-                    data: $(this).serialize(),
-                    success: function(response) {
-                        alert('Your message has been sent successfully!');
-                        $('#contactForm')[0].reset(); // Reset form fields
-                    },
-                    error: function(error) {
-                        alert('There was an error sending your message. Please try again.');
-                    }
-                });
-            });
-        });
+      form.addEventListener('submit', function(e) {
+          const formData = new FormData(form);
+          e.preventDefault();
+
+          const object = Object.fromEntries(formData);
+          const json = JSON.stringify(object);
+
+          fetch('https://api.web3forms.com/submit', {
+                  method: 'POST',
+                  headers: {
+                      'Content-Type': 'application/json',
+                      'Accept': 'application/json'
+                  },
+                  body: json
+              })
+              .then(async (response) => {
+                  let json = await response.json();
+                  if (response.status == 200) {
+                      $('#form')[0].reset(); // Reset form fields
+                      alert('Form submitted successfully!')
+                      console.log(json.message)
+                  } else {
+                      alert('Failed Form submitted!')
+                      console.log(response);
+                      console.log(json.message)
+                  }
+              })
+              .catch(error => {
+                  console.log(error);
+                  alert('Something went wrong!!')
+              })
+              // .then(function() {
+              //     form.reset();
+              //     setTimeout(() => {
+              //         result.style.display = "none";
+              //         console.log(json.message)
+              //     }, 3000);
+              // });
+      });
   </script>
   <!-- end contact section -->
 
@@ -478,7 +501,7 @@
                     Magna
                   </h6>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    Good!
                   </p>
                 </div>
               </div>
@@ -496,7 +519,7 @@
                     Magna
                   </h6>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    very helpful
                   </p>
                 </div>
               </div>
@@ -514,7 +537,7 @@
                     Magna
                   </h6>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    Very Useful
                   </p>
                 </div>
               </div>
@@ -532,7 +555,7 @@
                     Magna
                   </h6>
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    Awesome! 
                   </p>
                 </div>
               </div>
@@ -547,8 +570,9 @@
 
 
   <!-- info section -->
-  <section class="info_section ">
-    <div class="container">
+  <!-- background-color: #cf7a08; -->
+  <section class="info_section" style="background-color:#cf7a08;">
+    <div class="container" style="color: ;">
       <div class="row">
         <div class="col-md-3">
           <div class="info_logo">
@@ -659,7 +683,7 @@
 
 
   <!-- footer section -->
-  <footer class="container-fluid footer_section">
+  <footer class="container-fluid footer_section" style="background-color: #cf7a08;">
     <p>
       &copy; <span id="displayYear"></span> All Rights Reserved By
       <a href="https://html.design/">Free Html Templates</a>

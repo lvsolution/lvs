@@ -2,6 +2,8 @@
 body {
   font-family: "Poppins", sans-serif;
   color: #0c0c0c;
+  /* color: #cf7a08; */
+
   background-color: #ffffff;
 }
 
@@ -53,7 +55,8 @@ body {
   width: 60px;
   height: 7px;
   /* background-color: #8eec69; */
-  background-color: #071a52;
+  background-color: #cf7a08;
+  /* background-color: #071a52; */
   border-radius: 10px;
   position: absolute;
   bottom: 0;
@@ -401,7 +404,9 @@ a:focus {
   display: inline-block;
   padding: 10px 35px;
   /* background-color: #8eec69; */
-  background-color: #071a52;
+  /* background-color: #071a52; */
+  background-color: #cf7a08;
+
   color: #ffffff;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
@@ -411,7 +416,9 @@ a:focus {
 .slider_section .detail-box .btn-box .btn-2:hover {
   background-color: transparent;
   /* border-color: #8eec69; */
-  border-color: #071a52;
+  /* border-color: #071a52; */
+  border-color: #cf7a08;
+
   /* color: #8eec69; */
   color:#071a52;
 }
@@ -472,7 +479,9 @@ a:focus {
 }
 
 .service_section .box:hover {
-  background-color: #071a52;
+  /* background-color: #071a52; */
+  background-color: #cf7a08;
+
   color: #ffffff;
   -webkit-box-shadow: 15px 15px 0 1px rgba(0, 0, 0, 0.2);
           box-shadow: 15px 15px 0 1px rgba(0, 0, 0, 0.2);
